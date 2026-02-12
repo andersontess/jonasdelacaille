@@ -6,61 +6,25 @@
   <title>Jeu</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="page-bg">
-
-  <header class="topbar">
-    <button class="burger" id="openMenu" aria-label="Ouvrir le menu" aria-controls="drawer" aria-expanded="false">
-      <span></span>
-    </button>
-    <div class="brand">
-      <img src="jonas.png" alt="Logo Jonas" class="logo" />
+<body class="page">
+<header class="header">
+  <nav class="nav">
+    <div class="nav-left">
+      <a class="logo-link" href="index.html" aria-label="Retour à l'accueil">
+        <img src="jonas.png" alt="Logo Jonas" class="logo">
+      </a>
+      <a class="nav-link nav-link--green active" href="jeu.html">Jeu</a>
     </div>
-  </header>
-
-  <div class="backdrop" id="backdrop" aria-hidden="true"></div>
-
-  <aside class="drawer" id="drawer" aria-label="Menu">
-    <div class="drawer-header">
-      <div style="font-weight:700;">Menu</div>
-      <button class="close-btn" id="closeMenu" aria-label="Fermer le menu">✕</button>
+    <div class="nav-right">
+      <a class="nav-link nav-link--violet " href="about.html">About</a>
+      <a class="nav-link nav-link--bleu " href="contact.html">Contact</a>
     </div>
+  </nav>
+</header>
 
-    <nav>
-      <a class="nav-item" href="index.html"><img class="nav-icon" src="caca%20bleu.png" alt="" />Accueil</a>
-      <a class="nav-item active" href="jeu.html"><img class="nav-icon" src="caca%20blanc.png" alt="" />Jeu</a>
-      <a class="nav-item" href="about.html"><img class="nav-icon" src="caca%20violet.png" alt="" />About</a>
-      <a class="nav-item" href="contact.html"><img class="nav-icon" src="caca%20vert.png" alt="" />Contact</a>
-    </nav>
-
-  </aside>
-
-  <main class="main">
-
-  </main>
-
-  <script>
-    const body = document.body;
-    const openBtn = document.getElementById("openMenu");
-    const closeBtn = document.getElementById("closeMenu");
-    const backdrop = document.getElementById("backdrop");
-
-    function openMenu() {
-      body.classList.add("menu-open");
-      openBtn.setAttribute("aria-expanded", "true");
-    }
-    function closeMenu() {
-      body.classList.remove("menu-open");
-      openBtn.setAttribute("aria-expanded", "false");
-    }
-
-    openBtn.addEventListener("click", openMenu);
-    closeBtn.addEventListener("click", closeMenu);
-    backdrop.addEventListener("click", closeMenu);
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeMenu();
-    });
-  </script>
+<main class="main" style="width:100%; max-width:none; padding: var(--header-h) 0 0;">
+  <iframe class="game-frame" src="jeu2.html" title="Jeu Jonas"></iframe>
+</main>
 
 </body>
 </html>

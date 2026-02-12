@@ -6,72 +6,48 @@
   <title>About</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="page-bg">
-
-  <header class="topbar">
-    <button class="burger" id="openMenu" aria-label="Ouvrir le menu" aria-controls="drawer" aria-expanded="false">
-      <span></span>
-    </button>
-    <div class="brand">
-      <img src="jonas.png" alt="Logo Jonas" class="logo" />
+<body class="page">
+<header class="header">
+  <nav class="nav">
+    <div class="nav-left">
+      <a class="logo-link" href="index.html" aria-label="Retour à l'accueil">
+        <img src="jonas.png" alt="Logo Jonas" class="logo">
+      </a>
+      <a class="nav-link nav-link--green " href="jeu.html">Jeu</a>
     </div>
-  </header>
-
-  <div class="backdrop" id="backdrop" aria-hidden="true"></div>
-
-  <aside class="drawer" id="drawer" aria-label="Menu">
-    <div class="drawer-header">
-      <div style="font-weight:700;">Menu</div>
-      <button class="close-btn" id="closeMenu" aria-label="Fermer le menu">✕</button>
+    <div class="nav-right">
+      <a class="nav-link nav-link--violet active" href="about.html">About</a>
+      <a class="nav-link nav-link--bleu " href="contact.html">Contact</a>
     </div>
+  </nav>
+</header>
 
-    <nav>
-      <a class="nav-item" href="index.html"><img class="nav-icon" src="caca%20bleu.png" alt="" />Accueil</a>
-      <a class="nav-item" href="jeu.html"><img class="nav-icon" src="caca%20blanc.png" alt="" />Jeu</a>
-      <a class="nav-item active" href="about.html"><img class="nav-icon" src="caca%20violet.png" alt="" />About</a>
-      <a class="nav-item" href="contact.html"><img class="nav-icon" src="caca%20vert.png" alt="" />Contact</a>
-    </nav>
+<main class="main">
+    <h1>À propos — Pigeon de la Caille</h1>
+<p>Pigeon de la Caille est un collectif ancré à la Butte-aux-Cailles.<br>
+Nous agissons autour du logement, de la cohabitation et des conditions de vie en ville.</p>
 
-  </aside>
+<p>Nous partons d’un constat simple :<br>
+la ville se transforme pour être consommée,<br>
+de moins en moins pour être habitée.</p>
 
-  <main class="main">
-    <section class="card">
-      <h1>À propos — Pigeon de la Caille</h1>
-      <p class="lead">Pigeon de la Caille est un collectif ancré à la Butte-aux-Cailles. Nous agissons autour du logement, de la cohabitation et des conditions de vie en ville.</p>
-      <div class="sep"></div>
-      <p>Nous partons d’un constat simple : la ville se transforme pour être consommée, de moins en moins pour être habitée.</p>
-      <p>Dans ce contexte, certains deviennent indésirables. Le pigeon, figure urbaine emblématique, est jugé nuisible. Les personnes en précarité de logement subissent un regard similaire : tolérées tant qu’elles ne dérangent pas.</p>
-      <p>Nous utilisons le pigeon comme métaphore pour questionner une ville qui gère, déplace et invisibilise ce qui ne rentre pas dans le cadre.</p>
-      <p>Nous sensibilisons aux effets de la touristification, nous portons une pétition pour limiter la professionnalisation de la location meublée touristique, et nous menons des actions locales, écologiques et solidaires dans le quartier.</p>
-      <div class="sep"></div>
-      <p><strong>Agir ici, à l’échelle de la Butte-aux-Cailles, c’est poser une question plus large :</strong></p>
-      <p style="font-size:20px;"><strong>Qui a le droit de rester en ville — et à quelles conditions ?</strong></p>
-    </section>
-  </main>
+<p>Dans ce contexte, certains deviennent indésirables.<br>
+Le pigeon, figure urbaine emblématique, est jugé nuisible.<br>
+Les personnes en précarité de logement subissent un regard similaire :<br>
+tolérées tant qu’elles ne dérangent pas.</p>
 
-  <script>
-    const body = document.body;
-    const openBtn = document.getElementById("openMenu");
-    const closeBtn = document.getElementById("closeMenu");
-    const backdrop = document.getElementById("backdrop");
+<p>Nous utilisons le pigeon comme métaphore pour questionner une ville qui gère, déplace et invisibilise ce qui ne rentre pas dans le cadre.</p>
 
-    function openMenu() {
-      body.classList.add("menu-open");
-      openBtn.setAttribute("aria-expanded", "true");
-    }
-    function closeMenu() {
-      body.classList.remove("menu-open");
-      openBtn.setAttribute("aria-expanded", "false");
-    }
+<p>Nous sensibilisons aux effets de la touristification,<br>
+nous portons une pétition pour limiter la professionnalisation de la location meublée touristique,<br>
+et nous menons des actions locales, écologiques et solidaires dans le quartier.</p>
 
-    openBtn.addEventListener("click", openMenu);
-    closeBtn.addEventListener("click", closeMenu);
-    backdrop.addEventListener("click", closeMenu);
+<p>Agir ici, à l’échelle de la Butte-aux-Cailles,<br>
+c’est poser une question plus large :<br>
+Qui a le droit de rester en ville —<br>
+et à quelles conditions ?</p>
 
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeMenu();
-    });
-  </script>
+</main>
 
 </body>
 </html>

@@ -6,66 +6,59 @@
   <title>Accueil</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-
-  <header class="topbar">
-    <button class="burger" id="openMenu" aria-label="Ouvrir le menu" aria-controls="drawer" aria-expanded="false">
-      <span></span>
+<body class="home">
+<header class="header">
+  <nav class="nav">
+    <div class="nav-left">
+      <a class="logo-link" href="index.html" aria-label="Retour à l'accueil">
+        <img src="jonas.png" alt="Logo Jonas" class="logo">
+      </a>
+      <a class="nav-link nav-link--green " href="jeu.html">Jeu</a>
+    </div>
+    <div class="nav-right">
+      <a class="nav-link nav-link--violet " href="about.html">About</a>
+      <a class="nav-link nav-link--bleu " href="contact.html">Contact</a>
+    </div>
+    <button id="soundToggle" class="sound-btn" type="button" aria-pressed="false">
+      Sound OFF
     </button>
-    <div class="brand">
-      <img src="jonas.png" alt="Logo Jonas" class="logo" />
-    </div>
-  </header>
+  </nav>
+</header>
 
-  <div class="backdrop" id="backdrop" aria-hidden="true"></div>
-
-  <aside class="drawer" id="drawer" aria-label="Menu">
-    <div class="drawer-header">
-      <div style="font-weight:700;">Menu</div>
-      <button class="close-btn" id="closeMenu" aria-label="Fermer le menu">✕</button>
-    </div>
-
-    <nav>
-      <a class="nav-item active" href="index.html"><img class="nav-icon" src="caca%20bleu.png" alt="" />Accueil</a>
-      <a class="nav-item" href="jeu.html"><img class="nav-icon" src="caca%20blanc.png" alt="" />Jeu</a>
-      <a class="nav-item" href="about.html"><img class="nav-icon" src="caca%20violet.png" alt="" />About</a>
-      <a class="nav-item" href="contact.html"><img class="nav-icon" src="caca%20vert.png" alt="" />Contact</a>
-    </nav>
-
-  </aside>
-
-  <video class="video-bg" autoplay muted loop playsinline>
-    <source src="media/background.mp4" type="video/mp4" />
+<section class="home-video" aria-label="Vidéo d'accueil">
+  <video autoplay muted loop playsinline>
+    <source src="video.mp4" type="video/mp4">
+    Votre navigateur ne supporte pas la vidéo.
   </video>
-  <div class="overlay"></div>
+</section>
+<main class="main"></main>
 
-  <main class="main">
+<script>
+  const video = document.querySelector("video"); // ou document.getElementById("bgVideo") si tu as un id
+  const btn = document.getElementById("soundToggle");
 
-  </main>
+  // Par défaut: mute (recommandé pour autoplay)
+  video.muted = true;
+  video.volume = 0.9;
+  btn.textContent = "Sound OFF";
+  btn.setAttribute("aria-pressed", "false");
 
-  <script>
-    const body = document.body;
-    const openBtn = document.getElementById("openMenu");
-    const closeBtn = document.getElementById("closeMenu");
-    const backdrop = document.getElementById("backdrop");
+  btn.addEventListener("click", async () => {
+    // Toggle mute
+    video.muted = !video.muted;
 
-    function openMenu() {
-      body.classList.add("menu-open");
-      openBtn.setAttribute("aria-expanded", "true");
+    if (!video.muted) {
+      // Certains navigateurs exigent un play() après un changement audio
+      try { await video.play(); } catch(e) {}
+      btn.textContent = "Sound ON";
+      btn.setAttribute("aria-pressed", "true");
+    } else {
+      btn.textContent = "Sound OFF";
+      btn.setAttribute("aria-pressed", "false");
     }
-    function closeMenu() {
-      body.classList.remove("menu-open");
-      openBtn.setAttribute("aria-expanded", "false");
-    }
+  });
+</script>
 
-    openBtn.addEventListener("click", openMenu);
-    closeBtn.addEventListener("click", closeMenu);
-    backdrop.addEventListener("click", closeMenu);
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeMenu();
-    });
-  </script>
 
 </body>
 </html>
