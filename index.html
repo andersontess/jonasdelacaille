@@ -13,15 +13,18 @@
       <a class="logo-link" href="index.html" aria-label="Retour à l'accueil">
         <img src="jonas.png" alt="Logo Jonas" class="logo">
       </a>
-    </div>
+    <a class="nav-link nav-link--blanc" href="touillettes.html">Touillettes</a>
+      </div>
     <div class="nav-right">
-      <a class="nav-link nav-link--green" href="jeu.html">Jeu</a>
-      <a class="nav-link nav-link--violet" href="about.html">About</a>
-      <a class="nav-link nav-link--bleu" href="contact.html">Contact</a>
-      <button id="soundToggle" class="sound-btn" type="button" aria-pressed="false">
-        Sound OFF
-      </button>
-    </div>
+      <div class="nav-links-row">
+        <a class="nav-link nav-link--green" href="jeu.html">Jeu</a>
+        <a class="nav-link nav-link--violet" href="about.html">About</a>
+        <a class="nav-link nav-link--bleu" href="contact.html">Contact</a>
+      </div>
+      <div class="nav-sound-row">
+        <button id="soundToggle" class="sound-btn" type="button" aria-pressed="false">Sound OFF</button>
+      </div>
+</div>
 </nav>
 </header>
 
@@ -35,7 +38,7 @@
 <main class="main"></main>
 
 <script>
-  const video = document.querySelector("video"); 
+  const video = document.querySelector("video"); // ou document.getElementById("bgVideo") si tu as un id
   const btn = document.getElementById("soundToggle");
 
   // Par défaut: mute (recommandé pour autoplay)
@@ -74,7 +77,7 @@
 
     const img = document.createElement("img");
     img.className = "poop";
-    img.src = poopImgs[Math.floor(Math.random())];
+    img.src = poopImgs[Math.floor(Math.random() * poopImgs.length)];
     img.alt = "";
     img.style.left = x + "px";
     img.style.top = y + "px";
@@ -85,7 +88,7 @@
     img.style.rotate = rot + "deg";
 
     poopLayer.appendChild(img);
-
+    setTimeout(() => img.remove(), 6200);
   });
 
 </script>
