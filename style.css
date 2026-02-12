@@ -128,7 +128,7 @@ p {
 /* Accueil : vidéo plein écran */
 body.home {
   overflow: hidden;
-  background: #000; /* au cas où */
+  background: #e0dfdf; /* au cas où */
 }
 
 .home-video {
@@ -161,6 +161,7 @@ body.home .header { z-index: 20; }
   width: 100%;
   height: calc(100vh - var(--header-h));
   border: 0;
+  background: #e0dfdf;
   display: block;
 }
 
@@ -178,3 +179,33 @@ body.home .header { z-index: 20; }
 .sound-btn:hover{
   text-decoration: underline;
 }
+
+/* Curseur pigeon sur les éléments interactifs */
+a, button { cursor: url("pigeonCursor.png") 0 0, pointer; }
+
+/* Accueil : fiantes au clic */
+.poop-layer{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+}
+.poop{
+  position:absolute;
+  transform: translate(-50%, -50%);
+  width: 42px;
+  height: auto;
+  opacity: 1;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.22));
+  /* animation: poop-pop 120ms ease-out, poop-fade 6s ease-out forwards; */
+}
+
+/* @keyframes poop-pop{
+  from{ transform: translate(-50%, -50%) scale(0.75); }
+  to{ transform: translate(-50%, -50%) scale(1); }
+}
+@keyframes poop-fade{
+  0%{ opacity: 0.95; }
+  80%{ opacity: 0.95; }
+  100%{ opacity: 0; }
+} */

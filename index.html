@@ -13,16 +13,16 @@
       <a class="logo-link" href="index.html" aria-label="Retour à l'accueil">
         <img src="jonas.png" alt="Logo Jonas" class="logo">
       </a>
-      <a class="nav-link nav-link--green " href="jeu.html">Jeu</a>
     </div>
     <div class="nav-right">
-      <a class="nav-link nav-link--violet " href="about.html">About</a>
-      <a class="nav-link nav-link--bleu " href="contact.html">Contact</a>
+      <a class="nav-link nav-link--green" href="jeu.html">Jeu</a>
+      <a class="nav-link nav-link--violet" href="about.html">About</a>
+      <a class="nav-link nav-link--bleu" href="contact.html">Contact</a>
+      <button id="soundToggle" class="sound-btn" type="button" aria-pressed="false">
+        Sound OFF
+      </button>
     </div>
-    <button id="soundToggle" class="sound-btn" type="button" aria-pressed="false">
-      Sound OFF
-    </button>
-  </nav>
+</nav>
 </header>
 
 <section class="home-video" aria-label="Vidéo d'accueil">
@@ -30,11 +30,12 @@
     <source src="video.mp4" type="video/mp4">
     Votre navigateur ne supporte pas la vidéo.
   </video>
+  <div class="poop-layer" id="poopLayer" aria-hidden="true"></div>
 </section>
 <main class="main"></main>
 
 <script>
-  const video = document.querySelector("video"); // ou document.getElementById("bgVideo") si tu as un id
+  const video = document.querySelector("video"); 
   const btn = document.getElementById("soundToggle");
 
   // Par défaut: mute (recommandé pour autoplay)
@@ -57,6 +58,36 @@
       btn.setAttribute("aria-pressed", "false");
     }
   });
+
+  // Fiantes au clic sur la vidéo (aléatoire)
+  const videoArea = document.querySelector(".home-video");
+  const poopLayer = document.getElementById("poopLayer");
+  const poopImgs = ["caca1.png", "caca2.png", "caca3.png"];
+
+  videoArea.addEventListener("click", (e) => {
+    // Ne rien faire si on clique un élément interactif (sécurité)
+    if (e.target.closest("a, button")) return;
+
+    const rect = videoArea.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const img = document.createElement("img");
+    img.className = "poop";
+    img.src = poopImgs[Math.floor(Math.random())];
+    img.alt = "";
+    img.style.left = x + "px";
+    img.style.top = y + "px";
+
+    const size = 26 + Math.random() * 34; // 26–60px
+    img.style.width = size + "px";
+    const rot = (Math.random() * 70) - 35; // -35° à 35°
+    img.style.rotate = rot + "deg";
+
+    poopLayer.appendChild(img);
+
+  });
+
 </script>
 
 
