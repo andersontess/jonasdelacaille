@@ -2,28 +2,49 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jeu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>La butte aux pigeons</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="page">
-<header class="header">
-    <nav class="nav">
-    <a class="logo-link" href="index.html" aria-label="Retour à l'accueil">
-      <img src="jonas.png" alt="Logo Jonas" class="logo">
+<body>
+  <header class="header">
+  <div class="nav container">
+    <a class="brand" href="index.html" aria-label="Back to home">
+      <img src="jonas.png" alt="Jonas logo">
+      <span class="brand-name">La butte aux pigeons</span>
     </a>
-    <div class="nav-right">
-      <a class="nav-link nav-link--blanc" href="touillettes.html">Touillettes</a>
-      <a class="nav-link nav-link--green active" href="jeu.html">Jeu</a>
-      <a class="nav-link nav-link--violet" href="about.html">About</a>
-      <a class="nav-link nav-link--bleu" href="contact.html">Contact</a>
-    </div>
-  </nav>
+
+    <nav class="navlinks" aria-label="Primary">
+      <a class="btn" href="index.html">Home</a>
+      <a class="btn" href="about.html">About</a>
+      <a class="btn" href="jeu.html">Game</a>
+      <a class="btn" href="touillettes.html">Map</a>
+    </nav>
+  </div>
 </header>
 
-<main class="main" style="width:100%; max-width:none; padding: var(--header-h) 0 0;">
-  <iframe class="game-frame" src="jeu2.html" title="Jeu Jonas"></iframe>
-</main>
+  <main class="main page">
+    <div class="container">
+      <section class="card">
+        <h1 style="margin-top:0">Game</h1>
+        <p style="margin-top:0">Your game is embedded below. Replace <code>jeu2.html</code> if needed.</p>
+        <div class="mapbox" style="margin-top:14px;">
+          <div style="aspect-ratio: 16/9;">
+            <iframe src="jeu2.html" title="Game" style="width:100%;height:100%;border:0;display:block;"></iframe>
+          </div>
+        </div>
+      </section>
+    </div>
 
+    <footer class="footer">
+  <div class="inner">
+    <div>&copy; <span id="year"></span> La butte aux pigeons</div>
+    <div><a href="contact.html">Contact</a></div>
+  </div>
+</footer>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+  </main>
 </body>
 </html>

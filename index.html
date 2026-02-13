@@ -1,92 +1,44 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Accueil</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>La butte aux pigeons</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="home">
-<header class="header">
-    <nav class="nav">
-    <a class="logo-link" href="index.html" aria-label="Retour à l'accueil">
-      <img src="jonas.png" alt="Logo Jonas" class="logo">
-    </a>
-    <div class="nav-right">
-      <a class="nav-link nav-link--blanc" href="touillettes.html">Touillettes</a>
-      <a class="nav-link nav-link--green" href="jeu.html">Jeu</a>
-      <a class="nav-link nav-link--violet" href="about.html">About</a>
-      <a class="nav-link nav-link--bleu" href="contact.html">Contact</a>
-    </div>
-    <button id="soundToggle" class="sound-btn sound-btn--home" type="button" aria-pressed="false">Sound OFF</button>
-  </nav>
+  <header class="header">
+  <div class="nav container">
+    <a class="brand" href="index.html" aria-label="Back to home">
+      <img src="jonas.png" alt="Jonas logo">
+</a>
+
+    <nav class="navlinks" aria-label="Primary">
+      <a class="btn" href="about.html">About</a>
+      <a class="btn" href="touillettes.html">Map</a>
+    </nav>
+  </div>
 </header>
 
-<section class="home-video" aria-label="Vidéo d'accueil">
-  <video autoplay muted loop playsinline>
-    <source src="video.mp4" type="video/mp4">
-    Votre navigateur ne supporte pas la vidéo.
-  </video>
-  <div class="poop-layer" id="poopLayer" aria-hidden="true"></div>
-</section>
-<main class="main"></main>
-
+  <main class="main">
+    <section class="hero" aria-label="Home video">
+      <video autoplay muted loop playsinline preload="metadata">
+        <!-- Best practice: provide two versions for best fit -->
+        <source src="jonasPortrait.mov" media="(orientation: portrait)" type="video/mp4">
+        <source src="jonasPaysage.MP4" media="(orientation: landscape)" type="video/mp4">
+        <!-- Fallback: current single file -->
+        <source src="video.mp4" type="video/mp4">
+      </video>
+    </section></main>
+<footer class="footer">
+  <div class="inner">
+    <a href="contact.html">Contact</a>
+    <span class="sep">—</span>
+    <span>&copy; <span id="year"></span> La butte aux pigeons</span>
+  </div>
+</footer>
 <script>
-  const video = document.querySelector("video"); // ou document.getElementById("bgVideo") si tu as un id
-  const btn = document.getElementById("soundToggle");
-
-  // Par défaut: mute (recommandé pour autoplay)
-  video.muted = true;
-  video.volume = 0.9;
-  btn.textContent = "Sound OFF";
-  btn.setAttribute("aria-pressed", "false");
-
-  btn.addEventListener("click", async () => {
-    // Toggle mute
-    video.muted = !video.muted;
-
-    if (!video.muted) {
-      // Certains navigateurs exigent un play() après un changement audio
-      try { await video.play(); } catch(e) {}
-      btn.textContent = "Sound ON";
-      btn.setAttribute("aria-pressed", "true");
-    } else {
-      btn.textContent = "Sound OFF";
-      btn.setAttribute("aria-pressed", "false");
-    }
-  });
-
-  // Fiantes au clic sur la vidéo (aléatoire)
-  const videoArea = document.querySelector(".home-video");
-  const poopLayer = document.getElementById("poopLayer");
-  const poopImgs = ["caca1.png", "caca2.png", "caca3.png"];
-
-  videoArea.addEventListener("click", (e) => {
-    // Ne rien faire si on clique un élément interactif (sécurité)
-    if (e.target.closest("a, button")) return;
-
-    const rect = videoArea.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    const img = document.createElement("img");
-    img.className = "poop";
-    img.src = poopImgs[Math.floor(Math.random() * poopImgs.length)];
-    img.alt = "";
-    img.style.left = x + "px";
-    img.style.top = y + "px";
-
-    const size = 26 + Math.random() * 34; // 26–60px
-    img.style.width = size + "px";
-    const rot = (Math.random() * 70) - 35; // -35° à 35°
-    img.style.rotate = rot + "deg";
-
-    poopLayer.appendChild(img);
-    setTimeout(() => img.remove(), 6200);
-  });
-
+  document.getElementById("year").textContent = new Date().getFullYear();
 </script>
-
-
 </body>
 </html>

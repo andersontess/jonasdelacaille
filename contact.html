@@ -2,31 +2,42 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>La butte aux pigeons</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="page">
-<header class="header">
-    <nav class="nav">
-    <a class="logo-link" href="index.html" aria-label="Retour à l'accueil">
-      <img src="jonas.png" alt="Logo Jonas" class="logo">
-    </a>
-    <div class="nav-right">
-      <a class="nav-link nav-link--blanc" href="touillettes.html">Touillettes</a>
-      <a class="nav-link nav-link--green" href="jeu.html">Jeu</a>
-      <a class="nav-link nav-link--violet" href="about.html">About</a>
-      <a class="nav-link nav-link--bleu active" href="contact.html">Contact</a>
-    </div>
-  </nav>
+<body>
+  <header class="header">
+  <div class="nav container">
+    <a class="brand" href="index.html" aria-label="Back to home">
+      <img src="jonas.png" alt="Jonas logo">
+</a>
+
+    <nav class="navlinks" aria-label="Primary">
+      <a class="btn" href="about.html">About</a>
+      <a class="btn" href="touillettes.html">Map</a>
+    </nav>
+  </div>
 </header>
 
-<main class="main">
-
-    <h1>Contact</h1>
-    <p>Écris-nous : <strong>tessbanderson@gmail.com</strong></p>
-
-</main>
-
+  <main class="main page">
+    <div class="container">
+      <section class="prose">
+        <h1>Contactez-nous!</h1>
+        <p>email: labutteauxpigeons@chapeau.com </br>
+        tel: +33 4 27 17 48 21
+        </p>
+      </section>
+    </div></main>
+<footer class="footer">
+  <div class="inner">
+    <a href="contact.html">Contact</a>
+    <span class="sep">—</span>
+    <span>&copy; <span id="year"></span> La butte aux pigeons</span>
+  </div>
+</footer>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>

@@ -2,51 +2,50 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>La butte aux pigeons</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="page">
-<header class="header">
-    <nav class="nav">
-    <a class="logo-link" href="index.html" aria-label="Retour à l'accueil">
-      <img src="jonas.png" alt="Logo Jonas" class="logo">
-    </a>
-    <div class="nav-right">
-      <a class="nav-link nav-link--blanc" href="touillettes.html">Touillettes</a>
-      <a class="nav-link nav-link--green" href="jeu.html">Jeu</a>
-      <a class="nav-link nav-link--violet active" href="about.html">About</a>
-      <a class="nav-link nav-link--bleu" href="contact.html">Contact</a>
-    </div>
-  </nav>
+<body>
+  <header class="header">
+  <div class="nav container">
+    <a class="brand" href="index.html" aria-label="Back to home">
+      <img src="jonas.png" alt="Jonas logo">
+</a>
+
+    <nav class="navlinks" aria-label="Primary">
+      <a class="btn" href="about.html">About</a>
+      <a class="btn" href="touillettes.html">Map</a>
+    </nav>
+  </div>
 </header>
 
-<main class="main">
-    <h1>À propos — Pigeon de la Caille</h1>
-<p>Pigeon de la Caille est un collectif ancré à la Butte-aux-Cailles.<br>
-Nous agissons autour du logement, de la cohabitation et des conditions de vie en ville.</p>
+  <main class="main page offset-40">
+    <div class="container">
+      <section class="prose">
+        <h1>La butte aux pigeons - Qui sommes nous?</h1>
 
-<p>Nous partons d’un constat simple :<br>
-la ville se transforme pour être consommée,<br>
-de moins en moins pour être habitée.</p>
-
-<p>Dans ce contexte, certains deviennent indésirables.<br>
-Le pigeon, figure urbaine emblématique, est jugé nuisible.<br>
-Les personnes en précarité de logement subissent un regard similaire :<br>
-tolérées tant qu’elles ne dérangent pas.</p>
-
-<p>Nous utilisons le pigeon comme métaphore pour questionner une ville qui gère, déplace et invisibilise ce qui ne rentre pas dans le cadre.</p>
-
-<p>Nous sensibilisons aux effets de la touristification,<br>
-nous portons une pétition pour limiter la professionnalisation de la location meublée touristique,<br>
-et nous menons des actions locales, écologiques et solidaires dans le quartier.</p>
-
-<p>Agir ici, à l’échelle de la Butte-aux-Cailles,<br>
-c’est poser une question plus large :<br>
-Qui a le droit de rester en ville —<br>
-et à quelles conditions ?</p>
-
-</main>
-
+        
+        <p class="lead">Nous sommes un collectif qui lutte contre l’ostracisation des personnes en situation de précarité à la Butte-aux-Cailles, un quartier très prisé des touristes et du commerce de logements de passage.</p>
+        <p> Le quartier perd son essence communautaire, et nous sommes là pour la raviver.</p>
+<p>Vous nous considérez comme nuisibles, à l’image des pigeons ? Ce n’est pas une insulte.</p>
+<p>Comme eux, nous nous nicherons là où bon nous semblera et laisserons une empreinte de notre passage.</p>
+<p><strong>Nos actions :</strong></p>
+<p>•	Sensibilisation par la vidéo. </p>
+<p>•	Collages et pochoirs sauvages, afin de nous réapproprier les lieux.</p>
+<p>•	Partenariats avec des bars investis dans la reconquête de leur quartier : nous proposons des repas à emporter à petits prix, dans des emballages biodégradables. Cela favorise la réutilisation de matières premières pour aider les pigeons de la Butte-aux-Cailles à construire leurs nids, tout en améliorant la cohabitation interespèces et la propreté du quartier (la rue étant malheureusement souvent un refuge nocturne).</p>
+<p>•	Distribution de touillettes : l’idée est d’offrir aux pigeons de quoi faire leurs nids et de les aider à repeupler la Butte-aux-Cailles.</p>
+</section>
+    </div></main>
+<footer class="footer">
+  <div class="inner">
+    <a href="contact.html">Contact</a>
+    <span class="sep">—</span>
+    <span>&copy; <span id="year"></span> La butte aux pigeons</span>
+  </div>
+</footer>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
