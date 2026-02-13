@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Nos actions en image</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="nav container">
+      <a class="brand" href="index.html" aria-label="Retour à l'accueil">
+        <img src="jonas.png" alt="Logo">
+      </a>
+
+      <nav class="navlinks" aria-label="Navigation principale">
+        <a class="btn" href="actions.html" aria-current="page">Nos actions</a>
+        <a class="btn" href="about.html">About</a>
+        <a class="btn" href="touillettes.html">Map</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main page offset-40">
+    <section class="prose">
+      <h1 class="page-title">Nos actions en image</h1>
+      <p class="page-lead">Une sélection de photos et une vidéo pour montrer ce que nous faisons sur le terrain.</p>
+    </section>
+
+    <section class ="prose">
+      <section class="actions-grid" aria-label="Galerie d'actions">
+        <img class="actions-img" src="action1.jpg" alt="Action 1">
+        <img class="actions-img" src="action2.jpg" alt="Action 2">
+        <img class="actions-img" src="action3.jpg" alt="Action 3">
+        <img class="actions-img" src="action4.jpg" alt="Action 4">
+  
+        <!-- Vidéo centrale (remplace 'actions.mp4' par ta vidéo quand tu l'auras) -->
+        <div class="actions-videoBox">
+          <video class="actions-video" autoplay muted loop playsinline>
+            <source src="actions.mp4" type="video/mp4" />
+          </video>
+        </div>
+  
+        <img class="actions-img" src="action5.jpg" alt="Action 5">
+        <img class="actions-img" src="action6.jpg" alt="Action 6">
+        <img class="actions-img" src="action7.jpg" alt="Action 7">
+        <img class="actions-img" src="action8.jpg" alt="Action 8">
+        <img class="actions-img" src="action9.jpg" alt="Action 9">
+        <img class="actions-img" src="action10.jpg" alt="Action 10">
+        <img class="actions-img" src="action11.jpg" alt="Action 11">
+        <img class="actions-img" src="action%2012.jpg" alt="Action 12">
+      </section>
+    </section>
+    
+  </main>
+
+  <footer class="footer">
+    <div class="inner">
+      <a href="contact.html">Contact</a>
+      <span aria-hidden="true">—</span>
+      <span>© <span id="year"></span> La butte aux pigeons</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
