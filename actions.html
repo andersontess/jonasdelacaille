@@ -21,38 +21,80 @@
     </div>
   </header>
 
-  <main class="main page offset-40">
-    <section class="prose">
-      <h1 class="page-title">Nos actions en image</h1>
-      <p class="page-lead">Une sélection de photos et une vidéo pour montrer ce que nous faisons sur le terrain.</p>
-    </section>
-
-    <section class ="prose">
-      <section class="actions-grid" aria-label="Galerie d'actions">
-        <img class="actions-img" src="action1.jpg" alt="Action 1">
-        <img class="actions-img" src="action2.jpg" alt="Action 2">
-        <img class="actions-img" src="action3.jpg" alt="Action 3">
-        <img class="actions-img" src="action4.jpg" alt="Action 4">
   
-        <!-- Vidéo centrale (remplace 'actions.mp4' par ta vidéo quand tu l'auras) -->
-        <div class="actions-videoBox">
-          <video class="actions-video" autoplay muted loop playsinline>
-            <source src="actions.mp4" type="video/mp4" />
-          </video>
-        </div>
-  
-        <img class="actions-img" src="action5.jpg" alt="Action 5">
-        <img class="actions-img" src="action6.jpg" alt="Action 6">
-        <img class="actions-img" src="action7.jpg" alt="Action 7">
-        <img class="actions-img" src="action8.jpg" alt="Action 8">
-        <img class="actions-img" src="action9.jpg" alt="Action 9">
-        <img class="actions-img" src="action10.jpg" alt="Action 10">
-        <img class="actions-img" src="action11.jpg" alt="Action 11">
-        <img class="actions-img" src="action%2012.jpg" alt="Action 12">
+<main class="main page offset-40">
+    <div class="container">
+      <section class="prose">
+        <h1>Nos actions en image</h1>
+        <p class="lead">Une sélection de photos pour montrer ce que nous faisons sur le terrain.</p>
       </section>
+
+      <section class="actions-grid" aria-label="Galerie d'actions">
+      <button class="actions-thumb" type="button"><img class="actions-img" src="cafe1.jpeg" alt="Action 1"></button>
+      <button class="actions-thumb" type="button"><img class="actions-img" src="cafe2.jpeg" alt="Action 2"></button>
+      <button class="actions-thumb" type="button"><img class="actions-img" src="cafe3.jpeg" alt="Action 3"></button>
+      <button class="actions-thumb" type="button"><img class="actions-img" src="cafe4.jpeg" alt="Action 4"></button>
+
+      <button class="actions-thumb" type="button"><img class="actions-img" src="cafe5.jpeg" alt="Action 5"></button>
+      <button class="actions-thumb" type="button"><img class="actions-img" src="sticker1.jpeg" alt="Action 6"></button>
+      <button class="actions-thumb" type="button"><img class="actions-img" src="sticker2.jpeg" alt="Action 7"></button>
+      <button class="actions-thumb" type="button"><img class="actions-img" src="sticker3.jpeg" alt="Action 8"></button>
+      <button class="actions-thumb" type="button"><img class="actions-img" src="graff1.jpeg" alt="Action 9"></button>
+      <button class="actions-thumb" type="button"><img class="actions-img" src="graff2.jpeg" alt="Action 10"></button>
+      <button class="actions-thumb" type="button"><img class="actions-img" src="graff3.jpeg" alt="Action 11"></button>
+      <button class="actions-thumb" type="button"><img class="actions-img" src="graff4.jpeg" alt="Action 12"></button>
+      <button class="actions-thumb" type="button"><img class="actions-img" src="frite1.jpeg" alt="Frite 1"></button>
+      <button class="actions-thumb" type="button"><img class="actions-img" src="frite2.jpeg" alt="Frite 2"></button>
+      <button class="actions-thumb" type="button"><img class="actions-img" src="frite3.jpeg" alt="Frite 3"></button>
+      <button class="actions-thumb" type="button"><img class="actions-img" src="frite4.jpeg" alt="Frite 4"></button>
+      
     </section>
-    
+    </div>
   </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Fermer">✕</button>
+    <img class="lightbox-img" id="lightboxImg" alt="">
+  </div>
+
+  <script>
+    // Lightbox (Nos actions) — click an image to enlarge
+    const lb = document.getElementById("lightbox");
+    const lbImg = document.getElementById("lightboxImg");
+    const lbClose = document.getElementById("lightboxClose");
+
+    function openLB(src, alt) {
+      lbImg.src = src;
+      lbImg.alt = alt || "";
+      lb.classList.add("open");
+      lb.setAttribute("aria-hidden", "false");
+      document.body.classList.add("lb-open");
+    }
+    function closeLB() {
+      lb.classList.remove("open");
+      lb.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("lb-open");
+      setTimeout(() => { lbImg.src = ""; }, 120);
+    }
+
+    document.querySelectorAll(".actions-thumb").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const img = btn.querySelector("img");
+        if (!img) return;
+        openLB(img.getAttribute("src"), img.getAttribute("alt"));
+      });
+    });
+
+    lbClose.addEventListener("click", closeLB);
+    lb.addEventListener("click", (e) => {
+      if (e.target === lb) closeLB();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && lb.classList.contains("open")) closeLB();
+    });
+  </script>
+
 
   <footer class="footer">
     <div class="inner">
